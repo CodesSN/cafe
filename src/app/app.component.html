@@ -16,11 +16,11 @@
 
   <div class="icons">
     <div class="icon-s fas fa-search" id="search-btn"></div>
-    <div class="icon-s fas fa-shopping-cart" id="cart-btn">
+    <div class="icon-s fas fa-shopping-cart" (click)="openCart()" id="cart-btn">
     </div>
-    <div *ngFor="let item of cart" class="cart-body">
-        <div class="item-cart">
-                <img [src]="item.img" alt="">
+    <div class="cart-body" id="cart-body">
+        <div  *ngFor="let item of cart" class="item-cart flex">
+                <img class="flex w-[10px]" [src]="item.img" alt="">
             <div class="item-body">
                 <h1> {{item.tittle}} </h1>
                 <p><span>cantidad: </span>{{item.quantity}} </p>
@@ -144,10 +144,10 @@
         <div class="icons">
           <a class="fas fa-plus" (click)="addValue(1)"></a>
           <a class="fas">{{inp1}}</a>
-          <a href="#" class="fas fa-minus"></a>
+          <a class="fas fa-minus" (click)="minValue(1)"></a>
         </div>
         <div class="icons" style="margin-top: 10px">
-          <a class="btn" style="width: 100%"
+          <a class="btn" style="width: 100%" (click)="addToCart(1)"
             >Agregar al carrito <i class="fas fa-shopping-cart"></i
           ></a>
         </div>
@@ -173,10 +173,10 @@
       <div class="icons">
         <a class="fas fa-plus" (click)="addValue(2)"></a>
         <a class="fas">{{inp2}}</a>
-        <a class="fas fa-minus" onclick="restar('item2')"></a>
+        <a class="fas fa-minus" (click)="minValue(2)"></a>
       </div>
       <div class="icons" style="margin-top: 10px">
-        <a class="btn" style="width: 100%"
+        <a class="btn" style="width: 100%" (click)="addToCart(2)"
           >Agregar al carrito <i class="fas fa-shopping-cart"></i
         ></a>
       </div>
@@ -201,10 +201,10 @@
       <div class="icons">
         <a class="fas fa-plus" (click)="addValue(3)"></a>
         <a class="fas">{{inp3}}</a>
-        <a href="#" class="fas fa-minus"></a>
+        <a class="fas fa-minus" (click)="minValue(3)"></a>
       </div>
       <div class="icons" style="margin-top: 10px">
-        <a class="btn" style="width: 100%"
+        <a class="btn" style="width: 100%" (click)="addToCart(3)"
           >Agregar al carrito <i class="fas fa-shopping-cart"></i
         ></a>
       </div>
@@ -319,6 +319,7 @@
           placeholder="Name"
           id="contactName"
           name="contactName"
+          (change)="setName($event)"
         />
       </div>
       <div class="inputBox">
@@ -328,6 +329,7 @@
           placeholder="Email"
           id="contactEmail"
           name="contactEmail"
+          (change)="setEmail($event)"
         />
       </div>
       <div class="inputBox">
@@ -337,9 +339,10 @@
           placeholder="Number"
           id="contactNumber"
           name="contactNumber"
+          (change)="setNumber($event)"
         />
 
-        <input type="Submit" value="Contact now" class="btn" />
+        <input value="Contact now" class="btn" (click)="submit()" />
       </div>
     </form>
   </div>

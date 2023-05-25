@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,700;0,800;1,200&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root{
 
@@ -124,7 +127,8 @@ color: #ffff;
 }
 .cart-body{
     color: #ffffff;
-    display: flex;
+    display: none;
+    flex-direction: column;
     position: absolute;
     margin-top:10px;
     width:320px;
@@ -132,6 +136,9 @@ color: #ffff;
     background-color: #000000;
     overflow-y: scroll;
     columns:1;
+}
+.cart-body.active{
+    display: flex;
 }
 .cart-body::-webkit-scrollbar {
     width: 1em;
@@ -145,26 +152,29 @@ color: #ffff;
     background-color: darkgrey;
     outline: 1px solid slategrey;
   }
-.item-cart{
-    display: flex;
-    align-items: center;
-    font-size: small;
-    width:100%;
-    height:90px;
-    border-bottom:solid 1px #e1e1e1;
+  .item-cart{
     padding:10px;
-}
-.item-cart img{
+    width: 100%;
+    height:90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom:solid 1px #13131a;
+  }
+  .item-cart img{
     width:50px;
-    margin-right:10px;  
-}
-.item-body{
-    flex-wrap: wrap;
-    text-align: right;
-}
-.item-body h1{
-    margin-left: 180px;
-}
+    margin-right:20px;
+  }
+  .item-body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+  .item-body p{
+    position: absolute;
+    right: 10px;
+  }
 .header .icons .icon-s:hover{
     color: var(--main-color);
 }
