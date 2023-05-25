@@ -138,9 +138,10 @@ color: #ffff;
     overflow-y: scroll;
     columns:1;
     top:80px;
-    border:solid 1px #525252;
+    border: none;
 }
 .cart-body.active{
+    border:solid 1px #525252;
     height:400px;
 }
 .cart-body::-webkit-scrollbar {
