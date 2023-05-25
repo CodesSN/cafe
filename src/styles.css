@@ -126,19 +126,22 @@ color: #ffff;
     margin-left: 2rem;
 }
 .cart-body{
+    transition:.3s ease-in-out;
     color: #ffffff;
-    display: none;
+    display: flex;
     flex-direction: column;
     position: absolute;
     margin-top:10px;
-    width:320px;
-    height:400px;
+    width:322px;
+    height:0px;
     background-color: #000000;
     overflow-y: scroll;
     columns:1;
+    top:80px;
+    border:solid 1px #525252;
 }
 .cart-body.active{
-    display: flex;
+    height:400px;
 }
 .cart-body::-webkit-scrollbar {
     width: 1em;
@@ -348,6 +351,7 @@ color: #ffff;
 }
 
 .menu .box-container .box img{
+    align-items: center;
     height: 10rem;
 }
 
@@ -405,6 +409,8 @@ background: var(--main-color);
 }
  
 .products .box-container .box .image{
+    display: flex;
+    justify-content: center;
     padding: 2.5rem 0;
 
 }
